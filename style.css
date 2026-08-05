@@ -151,15 +151,16 @@ a:hover { color: var(--sea); }
 .portrait-frame::after { content: ""; position: absolute; inset: 5px; border: 1px solid color-mix(in srgb, var(--teal) 45%, transparent); pointer-events: none; }
 .portrait-cap { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; margin: 0.5rem 0 0; }
 
-/* the real map — featured banner */
-.mapbanner { margin: 2.8rem 0 0; }
-.mapfig { position: relative; margin: 0; padding: 8px; background: var(--surface); border: 1px solid var(--teal); }
-.mapfig img { display: block; width: 100%; height: auto; border: 1px solid color-mix(in srgb, var(--teal) 40%, var(--line)); }
-.mapfig figcaption {
-  font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--muted); text-align: center; margin-top: 9px;
+/* the real map — a faded strip across the top of every page */
+.masthead {
+  height: 172px;
+  background:
+    linear-gradient(color-mix(in srgb, var(--teal) 10%, transparent), color-mix(in srgb, var(--teal) 10%, transparent)),
+    linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--paper) 45%, transparent) 55%, var(--paper) 100%),
+    var(--masthead-img, url("/map.jpg")) center 32% / cover no-repeat;
+  border-bottom: 1px solid color-mix(in srgb, var(--teal) 50%, var(--line));
 }
-.mapfig figcaption span { color: var(--teal-deep); }
+@media (max-width: 640px) { .masthead { height: 108px; } }
 
 .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.8rem; }
 .btn {
