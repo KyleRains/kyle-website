@@ -125,8 +125,24 @@ a:hover { color: var(--sea); }
 
 /* ---- hero ---- */
 .hero { padding: 3rem 0 2rem; }
-.hero-intro { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
-@media (min-width: 760px) { .hero-intro { grid-template-columns: 1fr 250px; gap: 3rem; } }
+.hero-intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "coord" "media" "text";
+  gap: 1.3rem;
+  align-items: start;
+}
+.hero-coord { grid-area: coord; margin: 0; }
+.hero-text { grid-area: text; }
+@media (min-width: 760px) {
+  .hero-intro {
+    grid-template-columns: 1fr 250px;
+    grid-template-areas: "coord media" "text media";
+    grid-template-rows: auto 1fr;
+    column-gap: 3rem;
+    row-gap: 0.9rem;
+  }
+}
 .hero .role {
   font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.06em;
   color: var(--muted); margin: 0 0 1.4rem;
@@ -144,8 +160,8 @@ a:hover { color: var(--sea); }
 }
 
 /* framed portrait (map inset) */
-.hero-media { justify-self: end; width: 100%; max-width: 250px; }
-@media (max-width: 759px) { .hero-media { justify-self: start; order: -1; max-width: 200px; } }
+.hero-media { grid-area: media; justify-self: start; width: 100%; max-width: 200px; }
+@media (min-width: 760px) { .hero-media { justify-self: end; align-self: center; max-width: 250px; } }
 .portrait-frame { position: relative; }
 .portrait-frame img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border: 1px solid var(--teal); }
 .portrait-frame::after { content: ""; position: absolute; inset: 5px; border: 1px solid color-mix(in srgb, var(--teal) 45%, transparent); pointer-events: none; }
