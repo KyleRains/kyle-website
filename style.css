@@ -128,19 +128,17 @@ a:hover { color: var(--sea); }
 .hero-intro {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-areas: "coord" "media" "text";
-  gap: 1.3rem;
+  grid-template-areas: "media" "text";
+  gap: 1.6rem;
   align-items: start;
 }
-.hero-coord { grid-area: coord; margin: 0; }
 .hero-text { grid-area: text; }
 @media (min-width: 760px) {
   .hero-intro {
     grid-template-columns: 1fr 250px;
-    grid-template-areas: "coord media" "text media";
-    grid-template-rows: auto 1fr;
+    grid-template-areas: "text media";
     column-gap: 3rem;
-    row-gap: 0.9rem;
+    align-items: center;
   }
 }
 .hero .role {
